@@ -1,0 +1,27 @@
+#nav-bar-container{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0px;
+    background-color: #F8F005;
+}
+
+.nav-bar-items{
+    float: left;
+}
+
+.nav-bar-items .nav-bar-btns{
+    display: block;
+    color: #111;
+    background-color: #F8F005;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border: none;
+}
+
+.nav-bar-items .nav-bar-btns:hover{
+    background-color: #00E6F6;
+    border: none;
+}

@@ -1,0 +1,47 @@
+#quote-carousel-container{
+  display: flex;
+  justify-content: center;
+  min-width: 600px;
+  max-width: 600px;
+  min-height: 120px;
+  padding-top: 15px;
+  gap: 10px;
+}
+
+#carousel-btns-next{
+  left: 5%;
+}
+
+#carousel-btns-prev{
+  right: 5%;
+}
+
+#quote-slides{
+  min-width: 400px;
+  max-width: 400px;
+}
+
+#quote-text, #quote-author{
+  color: white;
+  text-shadow: 2px 2px 6px #000;
+}
+
+#carousel-btns-prev, #carousel-btns-next {
+  position: relative;
+  border-radius: 3px 0 0 3px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 16px;
+  color: #FCEE0C;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 3px 3px 3px 3px;
+  user-select: none;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+#carousel-btns-prev:hover, #carousel-btns-next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}

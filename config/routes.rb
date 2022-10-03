@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  resources :workouts
+  resources :quotes
   
-  get '/hello', to: 'application#hello_world'
-
+  resources :users
+  
 end
