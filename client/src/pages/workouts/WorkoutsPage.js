@@ -10,37 +10,27 @@ import "./WorkoutsPage.css";
 export default function WorkoutsPage(){
 
     const [exercises, setExercises] = useState([]);
-    const [refresh, setRefresh] = useState(false);
-
+    
     useEffect(() => {
         fetch("/exercises").then((r) => {
             if(r.ok){
                 r.json().then((exercises) => setExercises(exercises))
             }
         }).catch((error) => console.log("ERROR WHEN FETCHING EXERCISES:", error))
-    }, [refresh]);
+    }, []);
 
-    function likeExercise(id, update){
-
-        fetch(`/exercises/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                liked: update,
-            })
-        }).then((r) => {
-            if(r.ok){
-                r.json().then(() => {
-                    console.log("UPDATE SUCESSFUL");
-                    setRefresh(!refresh);
-                })
-            }
-        }).catch((error) => console.log("ERROR WHEN UPDATING EXERCISE LIKE STATUS: ", error));
+    function handleLike(updateExercise) {
+        const updateExercises = exercises.map((exercise) => {
+          if(exercise.id === updateExercise.id) {
+            return updateExercise;
+          }else{
+            return exercise;
+          }
+        });
+        setExercises(updateExercises);
     };
 
-    const exerciseCards = exercises.map((exercise) => <ExerciseCards key={exercise.id} exercise={exercise} likeExercise={likeExercise} />);
+    const exerciseCards = exercises.map((exercise) => <ExerciseCards key={exercise.id} exercise={exercise} handleLike={handleLike} />);
     
     return(
         <div id="exercise-cards-container">

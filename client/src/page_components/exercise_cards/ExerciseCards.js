@@ -4,12 +4,29 @@ import { useState } from "react";
 /* IMPORT STYLING */
 import "./ExerciseCards.css";
 
-export default function ExerciseCards({ exercise, likeExercise }){
+export default function ExerciseCards({ exercise, handleLike }){
 
     const [showInfo, setShowInfo] = useState(false);
 
     const toggleClass = () => {
         setShowInfo(!showInfo);
+    };
+
+    function likeExercise(id, update){
+
+        fetch(`/exercises/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                liked: update,
+            })
+        }).then((r) => {
+            if(r.ok){
+                r.json().then((updateLike) => handleLike(updateLike))
+            }
+        }).catch((error) => console.log("ERROR WHEN UPDATING EXERCISE LIKE STATUS: ", error));
     };
 
     return(
@@ -39,4 +56,3 @@ export default function ExerciseCards({ exercise, likeExercise }){
         </div>
     )
 };
-

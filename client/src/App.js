@@ -10,14 +10,20 @@ import WorkoutsPage from './pages/workouts/WorkoutsPage';
 export default function App() {
   
   const [user, setUser] = useState({});
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     fetch(`/users/${1}`).then((r) => {
       if (r.ok){
-        r.json().then((user) => setUser(user))
-      }
+        r.json().then((user) => {
+          setUser(user);
+          setIsLoaded(true);
+        });
+      };
     }).catch((error) => console.log("ERROR WHEN FETCHING USER: ", error));
   }, []);
+
+  if(!isLoaded) return <h1>Loading...</h1>;
 
   return (
     <>
@@ -29,9 +35,3 @@ export default function App() {
     </>
   );
 };
-
-/*
-  Navbar
-  Banner
-  Tiles
-*/
