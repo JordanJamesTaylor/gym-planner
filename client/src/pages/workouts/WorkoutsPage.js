@@ -27,7 +27,7 @@ export default function WorkoutsPage(){
             return exercise;
           }
         });
-        setExercises(updateExercises);
+        setExercises(updateExercises)
     };
 
     const exerciseCards = exercises.map((exercise) => <ExerciseCards key={exercise.id} exercise={exercise} handleLike={handleLike} />);

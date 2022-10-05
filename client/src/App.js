@@ -3,6 +3,7 @@ import { useState, useEffect} from 'react';
 import { Route, Routes } from "react-router-dom";
 
 /* IMPORT CUSTOM COMPONENTS */
+import Loading from './pages/loading/Loading';
 import NavBar from './page_components/navbar/NavBar';
 import Home from './pages/home/Home';
 import WorkoutsPage from './pages/workouts/WorkoutsPage';
@@ -23,8 +24,8 @@ export default function App() {
     }).catch((error) => console.log("ERROR WHEN FETCHING USER: ", error));
   }, []);
 
-  if(!isLoaded) return <h1>Loading...</h1>;
-
+  if(!isLoaded) return <Loading />;
+  
   return (
     <>
       <NavBar />
