@@ -2,36 +2,49 @@
 import { useEffect, useState } from 'react';
 
 /* IMPORT CUSTOM COMPONENTS */
-import WorkoutCards from "../../page_components/workout_cards/WorkoutCards";
+import ExerciseCards from "../../page_components/exercise_cards/ExerciseCards";
 
 /* IMPORT STYLING */
 import "./WorkoutsPage.css";
 
 export default function WorkoutsPage(){
 
-    const [workouts, setWorkouts] = useState([]);
-    // eslint-disable-next-line
-    const [error, setError] = useState("");
+    const [exercises, setExercises] = useState([]);
+    const [refresh, setRefresh] = useState(false);
 
     useEffect(() => {
-        fetch("/workouts").then((r) => {
+        fetch("/exercises").then((r) => {
             if(r.ok){
-                r.json().then((workouts) => setWorkouts(workouts))
+                r.json().then((exercises) => setExercises(exercises))
             }
-        }).catch((error) => setError(error))
-    }, [])
+        }).catch((error) => console.log("ERROR WHEN FETCHING EXERCISES:", error))
+    }, [refresh]);
 
-    const workoutCards = workouts.map((workout) => <WorkoutCards key={workout.id} workout={workout} />);
+    function likeExercise(id, update){
 
-    for (let i = 0; i < workoutCards.length; i += 4) {
-
-        const row = workoutCards.slice(i, i + 4)
-        console.log("Working with: ", row);
+        fetch(`/exercises/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                liked: update,
+            })
+        }).then((r) => {
+            if(r.ok){
+                r.json().then(() => {
+                    console.log("UPDATE SUCESSFUL");
+                    setRefresh(!refresh);
+                })
+            }
+        }).catch((error) => console.log("ERROR WHEN UPDATING EXERCISE LIKE STATUS: ", error));
     };
 
+    const exerciseCards = exercises.map((exercise) => <ExerciseCards key={exercise.id} exercise={exercise} likeExercise={likeExercise} />);
+    
     return(
-        <div id="workout-cards-container">
-            {workoutCards}
+        <div id="exercise-cards-container">
+            {exerciseCards}
         </div>
     )
 };

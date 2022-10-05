@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :workouts
+  resources :exercises
   resources :quotes
   
   resources :users

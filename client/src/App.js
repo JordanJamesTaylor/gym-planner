@@ -10,15 +10,13 @@ import WorkoutsPage from './pages/workouts/WorkoutsPage';
 export default function App() {
   
   const [user, setUser] = useState({});
-  // eslint-disable-next-line
-  const [error, setError] = useState('');
 
   useEffect(() => {
     fetch(`/users/${1}`).then((r) => {
       if (r.ok){
         r.json().then((user) => setUser(user))
       }
-    }).catch((error) => setError(error));
+    }).catch((error) => console.log("ERROR WHEN FETCHING USER: ", error));
   }, []);
 
   return (

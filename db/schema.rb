@@ -42,6 +42,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_214323) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "exercises", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "muscle_group"
+    t.string "form"
+    t.string "intensity"
+    t.string "image"
+    t.boolean "liked"
+    t.integer "seconds"
+    t.integer "reps"
+    t.integer "sets"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "quotes", force: :cascade do |t|
     t.string "text"
     t.string "author"
@@ -56,19 +71,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_214323) do
     t.integer "age"
     t.decimal "weight"
     t.decimal "height"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "workouts", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.string "muscle_group"
-    t.string "form"
-    t.string "image"
-    t.integer "seconds"
-    t.integer "reps"
-    t.integer "sets"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

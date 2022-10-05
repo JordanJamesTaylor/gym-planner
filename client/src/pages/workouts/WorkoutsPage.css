@@ -1,5 +1,7 @@
-#workout-cards-container{
+#exercise-cards-container{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100vw;
 }
