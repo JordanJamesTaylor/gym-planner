@@ -14,11 +14,7 @@ export default function LoginPage({ setUser }){
     const navigate = useNavigate();
 
     function handleSubmit(e) {
-
         e.preventDefault();
-
-        console.log("USERNAME: ", username);
-        console.log("PASSWORD: ", password);
 
         fetch("/login", {
           method: "POST",
@@ -30,7 +26,7 @@ export default function LoginPage({ setUser }){
         .then((r) => r.json())
         .then((user) => {
             setUser(user)
-            navigate("/")
+            navigate("/profile")
         });
     };
 
