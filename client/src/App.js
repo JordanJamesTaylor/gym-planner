@@ -32,8 +32,8 @@ export default function App() {
     <>
       <NavBar />
       <Routes>
+        <Route exact path="/" element={<Home user={user} />} />
         <Route exact path="/profile" element={<Profile user={user} />} />
-        <Route exact path="/home" element={<Home user={user} />} />
         <Route exact path="/workouts" element={<WorkoutsPage />} />
       </Routes>
     </>

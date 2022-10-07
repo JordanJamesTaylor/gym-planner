@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
 
+    skip_before_action :authorize, only: [:create]
+
     def index
         render json: User.all
     end
 
     def show
-        render json: User.find_by(id: session[:user_id])
+        render json: @current_user
     end
 
     def create
@@ -14,13 +16,13 @@ class UsersController < ApplicationController
     end
 
     def update
-        updatedUser = User.find_by(id: params[:id])
+        updatedUser = @current_user
         updatedUser.update!(user_params)
         render json: updatedUser, status: :accepted
     end
 
     def destroy
-        userToDelete = User.find_by(id: params[:id])
+        userToDelete = @current_user
         userToDelete.destroy
         head :no_content 
     end
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:first_name, :last_name, :username, :age, :weight, :height)
+        params.permit(:first_name, :last_name, :username, :password, :email, :age, :weight, :height)
     end
 
 end

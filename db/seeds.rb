@@ -1,11 +1,5 @@
 puts "SEEDING DATA"
 
-puts "SEEDING USERS..."
-
-User.create!(first_name: "Jordan", last_name: "Taylor", username: "BFG")
-
-puts "USERS SEEDED"
-
 puts "SEEDING EXERCISES..."
 
 Exercise.create!(name: "Press-Ups", description: "This exercise works the pectoral muscles in your chest and the triceps. These are the muscles in the back of your upper arms. You don't need any equipment to get started with press-ups.  To assist with keeping proper lower back alignment, slim your waistline by trying to pull your belly button in and tightening your abdominal muscles.", muscle_group: "Upper Body and Core", intensity: "Beginner", form: "Hips should be in line with the shoulders, and the lower back should have a neutral curve—not completely flat, but not overly curved either.", image: "https://images.medicinenet.com/images/article/main_image/what-are-push-ups-for.jpg", liked: true, seconds:0, reps:15, sets: 3)
