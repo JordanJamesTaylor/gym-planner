@@ -8,12 +8,19 @@ export default function NavBar(){
 
     const navigate = useNavigate();
 
+    function handleLogout() {
+        fetch("/logout", {
+          method: "DELETE",
+        }).then(() => navigate("/login"));
+    };
+
     return(
         <ul id="nav-bar-container">
             <li className="nav-bar-items"><button className="nav-bar-btns" onClick={() => navigate("/home")}>Home</button></li>
             <li className="nav-bar-items"><button className="nav-bar-btns" onClick={() => navigate("/workouts")}>Workouts</button></li>
             <li className="nav-bar-items"><button className="nav-bar-btns" onClick={() => navigate("/")}>Contact</button></li>
             <li className="nav-bar-items"><button className="nav-bar-btns" onClick={() => navigate("/")}>About</button></li>
+            <li className="nav-bar-items"><button onClick={handleLogout}>Logout</button></li>
         </ul>
     )
 };
