@@ -1,9 +1,10 @@
 /* IMPORT DEPENDENCIES */
 import { useState, useEffect} from 'react';
-import { Route, Routes, Router } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 /* IMPORT CUSTOM COMPONENTS */
-import LoginPage from './pages/login/LoginPage';
+import LogginPage from './pages/login/LoginPage';
+import LoadingPage from './pages/loading/Loading';
 import NavBar from './page_components/navbar/NavBar';
 import Profile from './pages/profile/Profile';
 import Home from './pages/home/Home';
@@ -12,6 +13,7 @@ import WorkoutsPage from './pages/workouts/WorkoutsPage';
 export default function App() {
   
   const [user, setUser] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
 
@@ -19,14 +21,17 @@ export default function App() {
       if (r.ok){
         r.json().then((user) => {
           setUser(user);
+          setLoaded(true);
         });
       };
     }).catch((error) => console.log("ERROR WHEN FETCHING USER: ", error));
   }, []);
 
-  if(!user) return <LoginPage setUser={setUser} />;
-  
-  console.log(`LOGGED IN USER: ${user.first_name} ${user.last_name}`);
+  if(!user){
+    return <LogginPage setUser={setUser} />
+  }else if(!loaded){
+    return <LoadingPage />
+  };
   
   return (
     <>
@@ -47,10 +52,10 @@ export default function App() {
           <>
             <NavBar />
             <WorkoutsPage /> 
-          </>
+          </> 
         }/>
       
-        <Route exact path="/login" element={<LoginPage setUser={setUser} />}/>
+        <Route exact path="/login" element={<LogginPage setUser={setUser} />}/>
       </Routes>
     </>
   );

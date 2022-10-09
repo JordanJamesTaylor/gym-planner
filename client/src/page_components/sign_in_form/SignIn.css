@@ -1,0 +1,70 @@
+.sign-in-form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.sign-in-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    height: 100;
+    margin-top: 5%;
+    padding: 10px 10px 20px 10px;
+    border: 1px solid #BFBFBF;
+    border-radius: 15px;    
+    background-color: #080a3f;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    z-index: -100;
+}
+
+#sign-in-form-title{
+    color: #D3F501;
+}
+
+#sign-in-form-logo{
+    margin-bottom: 25px;  
+}
+
+.sign-in-form-labels{
+    color: #D3F501;
+}
+
+.suf-sub-labels{
+    color: #D3F501;
+}
+
+.sign-in-form-inputs{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+#sign-in-form-btn {
+    width: 100%;
+    margin: 8px 0;
+    padding: 14px 20px;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    background-color: #D3F501;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+#sign-in-form-btn:hover {
+    opacity: 0.8;
+}
+
+#signin-switch-forms{
+    color: #D3F501;
+    cursor: pointer;
+}
