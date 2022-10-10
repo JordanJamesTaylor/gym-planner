@@ -3,10 +3,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 /* IMPORT STYLING */
-import "./SignUp.css";
+import "./DRAFTSignUp.css";
 
 /* IMPORT MEDIA */
-import logo from "../../images/gym-logo.png"
+import logo from "../../../images/gym-logo.png";
 
 export default function SignUp({ setUser, toggleForms }){
 

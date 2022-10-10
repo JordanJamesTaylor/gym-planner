@@ -1,5 +1,7 @@
 class QuotesController < ApplicationController
 
+    skip_before_action :authorize
+
     def index
         render json: Quote.all
     end

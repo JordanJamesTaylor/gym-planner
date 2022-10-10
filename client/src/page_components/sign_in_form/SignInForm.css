@@ -1,0 +1,79 @@
+#si-page{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    padding-right: 15%;
+}
+
+.si-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    height: 100;
+    margin-top: 5%;
+    padding: 10px 10px 20px 10px;
+}
+
+#si-form-title{
+    color: black;
+}
+
+#si-form-quote{
+    margin: 0px;
+}
+
+#si-form-logo{
+    margin: 20px 0px;  
+}
+
+.si-form-inputs{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.si-form-btn-container{
+    display: flex;
+    flex-direction: row;
+}
+
+#si-btn {
+    width: 100%;
+    margin: 8px 0;
+    padding: 14px 20px;
+    margin: 5px 15px 0px 10px;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    background-color: #e2fe35;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+#si-btn:hover {
+    background-color: #D3F501;
+}
+
+#create-account-btn{
+    width: 100%;
+    margin: 8px 0;
+    padding: 14px 20px;
+    margin: 5px 15px 0px 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 24px;
+
+}
+
+#create-account-btn:hover {
+    background-color: #e4e8e5;
+}

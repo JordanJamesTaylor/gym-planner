@@ -36,7 +36,7 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route exact path="/home" element={
+        <Route exact path="/" element={
           <>
             <NavBar />
             <Home user={user} />
@@ -54,7 +54,7 @@ export default function App() {
             <WorkoutsPage /> 
           </> 
         }/>
-      
+
         <Route exact path="/login" element={<LogginPage setUser={setUser} />}/>
       </Routes>
     </>

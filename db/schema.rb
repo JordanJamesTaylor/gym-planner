@@ -78,9 +78,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_205443) do
     t.string "username"
     t.string "password_digest"
     t.string "email"
-    t.integer "age"
-    t.decimal "weight"
-    t.decimal "height"
+    t.string "age"
+    t.string "weight"
+    t.string "height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

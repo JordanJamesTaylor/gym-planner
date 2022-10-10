@@ -16,7 +16,7 @@
     border: 1px solid #BFBFBF;
     border-radius: 15px;    
     background-color: #080a3f;
-    box-shadow: 10px 10px 5px #aaaaaa;
+    box-shadow: 10px 10px 25px 10px rgba(8, 10, 63, .35);;
     z-index: -100;
 }
 

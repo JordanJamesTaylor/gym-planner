@@ -16,7 +16,7 @@ export default function NavBar(){
  
     return(
         <ul id="nav-bar-container">
-            <li className="nav-bar-items"><button className="nav-bar-btns" onClick={() => navigate("/home")}>Home</button></li>
+            <li className="nav-bar-items"><button className="nav-bar-btns" onClick={() => navigate("/")}>Home</button></li>
             <li className="nav-bar-items"><button className="nav-bar-btns" onClick={() => navigate("/workouts")}>Workouts</button></li>
             <li className="nav-bar-items"><button className="nav-bar-btns" onClick={() => navigate("/")}>Contact</button></li>
             <li className="nav-bar-items"><button className="nav-bar-btns" onClick={() => navigate("/profile")}>Profile</button></li>
