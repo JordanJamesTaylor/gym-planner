@@ -3,7 +3,7 @@ import { useState, useEffect} from 'react';
 import { Route, Routes } from "react-router-dom";
 
 /* IMPORT CUSTOM COMPONENTS */
-import LogginPage from './pages/login/LoginPage';
+import LoginPage from './pages/login/LoginPage';
 import LoadingPage from './pages/loading/Loading';
 import NavBar from './page_components/navbar/NavBar';
 import Profile from './pages/profile/Profile';
@@ -28,7 +28,7 @@ export default function App() {
   }, []);
 
   if(!user){
-    return <LogginPage setUser={setUser} />
+    return <LoginPage setUser={setUser} />
   }else if(!loaded){
     return <LoadingPage />
   };
@@ -55,7 +55,7 @@ export default function App() {
           </> 
         }/>
 
-        <Route exact path="/login" element={<LogginPage setUser={setUser} />}/>
+        <Route exact path="/login" element={<LoginPage setUser={setUser} />}/>
       </Routes>
     </>
   );

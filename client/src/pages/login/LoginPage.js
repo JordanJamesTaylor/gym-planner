@@ -11,7 +11,7 @@ import "./LoginPage.css";
 /* IMPORT MEDIA */
 import loginImage from "./gym-login-image.webp";
 
-export default function LogginPage({ setUser }){
+export default function LoginPage({ setUser }){
 
     const [showSignIn, setShowSignIn] = useState(true);
 

@@ -7,8 +7,9 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :password_digest
       t.string :email
       t.string :age
-      t.string :weight
       t.string :height
+      t.string :weight
+      t.string :target_weight
 
       t.timestamps
     end
