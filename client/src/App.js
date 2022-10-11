@@ -1,6 +1,7 @@
 /* IMPORT DEPENDENCIES */
 import { useState, useEffect} from 'react';
 import { Route, Routes } from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 /* IMPORT CUSTOM COMPONENTS */
 import LoginPage from './pages/login/LoginPage';
@@ -35,6 +36,12 @@ export default function App() {
   
   return (
     <>
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Gym App</title>
+          <link rel="canonical" href="http://mysite.com/example" />
+          <meta name="description" content="A workout companion app"></meta>
+      </Helmet>
       <Routes>
         <Route exact path="/" element={
           <>
@@ -45,7 +52,7 @@ export default function App() {
         <Route exact path="/profile" element={
           <>
             <NavBar />
-            <Profile user={user} />
+            <Profile user={user} setUser={setUser} />
           </>
         }/>
         <Route exact path="/workouts" element={

@@ -77,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_205443) do
     t.string "last_name"
     t.string "username"
     t.string "password_digest"
+    t.string "avatar"
     t.string "email"
     t.string "age"
     t.string "height"

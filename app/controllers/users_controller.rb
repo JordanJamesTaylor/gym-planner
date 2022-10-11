@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    skip_before_action :authorize, only: [:create]
+    skip_before_action :authorize, only: [:create, :updateAvatar]
 
     def index
         render json: User.all
@@ -27,10 +27,16 @@ class UsersController < ApplicationController
         head :no_content 
     end
 
+    def updateAvatar
+        updatedUser = User.find_by(id: params[:id])
+        updatedUser.update!(avatar: params[:avatar])
+        render json: updatedUser, status: :accepted
+    end
+
     private
 
     def user_params
-        params.permit(:first_name, :last_name, :username, :email, :password, :age, :weight, :target_weight, :height)
+        params.permit(:first_name, :last_name, :username, :email, :password, :avatar, :age, :weight, :target_weight, :height)
     end
 
 end
