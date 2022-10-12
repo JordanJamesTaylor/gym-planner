@@ -14,7 +14,7 @@ import WorkoutsPage from './pages/workouts/WorkoutsPage';
 export default function App() {
   
   const [user, setUser] = useState(null);
-  const [loaded, setLoaded] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
 
@@ -22,7 +22,7 @@ export default function App() {
       if (r.ok){
         r.json().then((user) => {
           setUser(user);
-          setLoaded(true);
+          setLoading(false);
         });
       };
     }).catch((error) => console.log("ERROR WHEN FETCHING USER: ", error));
@@ -30,7 +30,7 @@ export default function App() {
 
   if(!user){
     return <LoginPage setUser={setUser} />
-  }else if(!loaded){
+  }else if(loading){
     return <LoadingPage />
   };
   

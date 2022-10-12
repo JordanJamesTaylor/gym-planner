@@ -19,22 +19,22 @@ export default function SignInForm({ toggleForms, setUser }){
     function handleSignInSubmit(e) {
         e.preventDefault();
 
-        if(password === confirmPassword){
-            fetch("/login", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ username, password }),
-            })
-            .then((r) => r.json())
-            .then((user) => {
-                setUser(user)
-                navigate("/profile")
-            });
-        }else{
-            console.log("INCORRECT USERNAME OR PASSWORD")
-        };
+        fetch("/login", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ 
+                username, 
+                password,
+                password_confirmation: confirmPassword,
+            }),
+        })
+        .then((r) => r.json())
+        .then((user) => {
+            setUser(user)
+            navigate("/profile")
+        });
     };
     return(
         <div id="si-page">
@@ -48,7 +48,7 @@ export default function SignInForm({ toggleForms, setUser }){
 
                 <input className="si-form-inputs" type="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
 
-                <input className="si-form-inputs" type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+                <input className="si-form-inputs" type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />   
                 
                 <div className="si-form-btn-container">
                     <button id="si-btn" type="submit">Sign In</button>

@@ -1,18 +1,13 @@
-/* IMPORT DEPENDENCIES */
-import { useState } from "react";
-
 /* IMPORT STYLING */
 import "./Profile.css";
 
 /* IMPORT MEDIA */
-import deafultAvatar from "./add-avatar.webp";
+import deafultAvatar from "./default-avatar.jpg";
+import uploadIcon from "./upload-icon.jpg";
 
 export default function Profile({ user, setUser }){
-    
+
     function updateAvatar(avatar) {
-                
-        console.log("AVATAR AWAY!");
-        console.log(avatar)
 
         const avatarData = new FormData()
         avatarData.append("avatar", avatar)
@@ -22,7 +17,7 @@ export default function Profile({ user, setUser }){
           body: avatarData,
         }).then((r) => {
         if (r.ok) {
-            r.json().then((user) => setUser(user));
+            r.json().then((updatedUser) => setUser(updatedUser))
         } else {
             r.json().then((error) => console.log("Error when updating avatar: ", error));
         }});
@@ -36,9 +31,10 @@ export default function Profile({ user, setUser }){
                 <img id="profile-avatar" src={user.avatar_url} alt="Avatar"/> 
             </label> 
             : 
-            <label>
-                <input type="file" hidden onChange={(e) => updateAvatar(e.target.files[0])} /> 
-                <img id="profile-avatar" src={deafultAvatar} alt="Avatar"/> 
+            <label id="default-avatar-container">
+                <img id="default-avatar" src={deafultAvatar} alt="Avatar"/>
+                <img id="upload-icon" src={uploadIcon} alt="Avatar"/>
+                <input type="file" hidden onChange={(e) => updateAvatar(e.target.files[0])} />
             </label>
             }           
             <h1 id="username">Hello {user.username}!</h1>

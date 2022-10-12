@@ -20,6 +20,18 @@ export default function SignInForm({ toggleForms, setUser }){
     const [weight, setWeight] = useState("");
     const [targetWeight, setTargetWeight] = useState("")
 
+    // const [newUser, setNewUser] = useState({
+    //     firstName,
+    //     lastName,
+    //     username,
+    //     email,
+    //     password,
+    //     age,
+    //     height,
+    //     weight,
+    //     targetWeight,
+    // })
+
     const navigate = useNavigate();
 
     function handleSignUpSubmit(e){

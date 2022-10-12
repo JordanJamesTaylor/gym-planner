@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    skip_before_action :authorize, only: [:create, :updateAvatar]
+    skip_before_action :authorize, only: [:create]
 
     def index
         render json: User.all
@@ -12,13 +12,12 @@ class UsersController < ApplicationController
 
     def create
         newUser = User.create!(user_params)
+        session[:user_id] = newUser.id
         render json: newUser, status: :created
     end
 
     def update
-        updatedUser = @current_user
-        updatedUser.update!(user_params)
-        render json: updatedUser, status: :accepted
+        render json: @current_user.update!(user_params), status: :accepted
     end
 
     def destroy
@@ -32,11 +31,11 @@ class UsersController < ApplicationController
         updatedUser.update!(avatar: params[:avatar])
         render json: updatedUser, status: :accepted
     end
-
+    
     private
 
     def user_params
-        params.permit(:first_name, :last_name, :username, :email, :password, :avatar, :age, :weight, :target_weight, :height)
+        params.permit(:first_name, :last_name, :username, :password, :password_confirmation, :email, :avatar, :age, :weight, :target_weight, :height)
     end
 
 end
