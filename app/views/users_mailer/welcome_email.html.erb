@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to GymApp, <%= @user.first_name @user.last_name %></h1>
+    <p>
+        You have successfully signed up to GymApp,
+        your username is: <%= @user.username %>.<br>
+    </p>
+    <p>
+        To view your profile, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for joining and let us know if you have any questions!</p>
+    </body>
+</html>
